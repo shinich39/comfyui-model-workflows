@@ -2,7 +2,7 @@
 @author: shinich39
 @title: comfyui-model-workflows
 @nickname: comfyui-model-workflows
-@version: 1.0.0
+@version: 1.0.1
 @description: Load model creator's workflow.
 """
 

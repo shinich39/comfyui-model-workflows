@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-model-workflows"
 description = "Load model creator's workflow."
-version = "1.0.3"
+version = "1.0.1"
 license = { file = "LICENSE" }
 
 [project.urls]

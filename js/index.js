@@ -3,7 +3,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const NODE_TYPE = "ModelWorkflow";
+const NODE_TYPE = "ModelWorkflows";
 const MIN_LABEL_LENGTH = 0;
 const CKPT_META_KEYS = {
   "vae":       `${"VAE".padEnd(MIN_LABEL_LENGTH, " ")}`,
