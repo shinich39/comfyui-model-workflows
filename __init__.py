@@ -86,15 +86,20 @@ def get_ckpt_json():
   if local_data != None and "updatedAt" in local_data:
     local_time = local_data["updatedAt"]
 
-  is_updated = os.path.exists(CKPT_DATA_PATH) == False or remote_time == local_time
+  is_updated = os.path.exists(CKPT_DATA_PATH) == False or local_time != remote_time
 
   if is_updated == False:
     with open(CKPT_DATA_PATH, "r") as file:
-      print(f"[comfyui-model-workflows] No updates found")
+      print(f"[comfyui-model-workflows] No updates found: {local_time} = ${remote_time}")
       return json.load(file)
     
+  # Save latest.json
+  with open(LATEST_DATA_PATH, "w") as f:
+    f.write(json.dumps(remote_data))
+    f.close()
+  
   # Dowlolad checkpoints.json
-  print(f"[comfyui-model-workflows] New update available: {local_time} => {remote_time}")
+  print(f"[comfyui-model-workflows] New update available: {local_time} < {remote_time}")
   print(f"[comfyui-model-workflows] Downloading checkpoints.json.gz...")
 
   try:
